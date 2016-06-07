@@ -134,7 +134,7 @@ class Runner
         $uname = strtolower(php_uname());
 
         if (Str::contains($uname, 'darwin')) {
-            if (! shell_exec(escapeshellcmd("which {$binary}"))) {
+            if (! file_exists($binary)) {
                 return false;
             }
         } elseif (Str::contains($uname, 'win')) {
